@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+<h1>THIS IS A LIBRARY!</h1>
+<h3>DON'T YOU KNOW YOU'RE SUPPOSED TO BE QUIET IN THE LIBRARY?!</h3>
+<form name="editForm">
 
+<!--    document.querySelector("#edit-title").value = movie.title;-->
+<!--    document.querySelector("#edit-id").value = movie.id;-->
+<!--    document.querySelector("#edit-rating").value = movie.rating;-->
+
+    <label for="edit-select">Select A Movie:</label>
+    <select name="edit-select" id="edit-select"></select>
+    <label for="edit-title">Movie Title:</label>
+    <input type="text" id="edit-title">
+<!--    <label for="edit-isbn">Book ISBN:</label>-->
+<!--    <input type="text" id="edit-isbn">-->
+    <label for="edit-id">Movie ID:</label>
+    <input type="text" id="edit-id">
+<!--    <label for="edit-year">Book Year Published:</label>-->
+<!--    <input type="text" id="edit-year">-->
+    <label for="edit-rating">Rate Me:</label><br>
+    <input type="text" id="edit-rating">
+    <button>Submit Edit</button>
+</form>
+<script src="js/movies-application.js"></script>
 </body>
 </html>
