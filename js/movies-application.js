@@ -3,23 +3,23 @@
 (() => {
     fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => console.log(data));
 
-    const createMovie = async (movie) => {
-        try {
-            const url = `http://localhost:3000/movies`;
-            const options = {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(movie)
-            };
-            const resp = await fetch(url, options);
-            const newMovie = await resp.json();
-            return newMovie;
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    // const createMovie = async (movie) => {
+    //     try {
+    //         const url = `http://localhost:3000/movies`;
+    //         const options = {
+    //             method: "POST",
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(movie)
+    //         };
+    //         const resp = await fetch(url, options);
+    //         const newMovie = await resp.json();
+    //         return newMovie;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
 
     // const createAuthor = async (author) => {
@@ -40,29 +40,25 @@
     //     }
     // }
 
-    const editMovie = async (id, movie) => {
-        try {
-            const url = `http://localhost:3000/movies/${id}`;
-            const options = {
-                method: "PATCH", // or PUT, but that will replace the ENTIRE object.
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(movie)
-            };
-            const resp = await fetch(url, options);
-            const newMovie = await resp.json();
-            return newMovie;
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    // const editMovie = async (id, movie) => {
+    //     try {
+    //         const url = `http://localhost:3000/movies/${id}`;
+    //         const options = {
+    //             method: "PATCH", // or PUT, but that will replace the ENTIRE object.
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(movie)
+    //         };
+    //         const resp = await fetch(url, options);
+    //         const newMovie = await resp.json();
+    //         return newMovie;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
-    const newBook = {
-        "id": 1,
-        "title": "Shrek",
-        "rating": 5
-    }
+
 
     // const jimDavis = {
     //     "name": "Jim Davis",
@@ -89,8 +85,8 @@
     populateDropDown();
 
     document.querySelector("#edit-select").addEventListener("change", (e) => {
-        const bookId = e.target.value;
-        fetch("http://localhost:3000/books/" + bookId).then(resp => resp.json()).then(book => {
+        const movieId = e.target.value;
+        fetch("http://localhost:3000/books/" + movieId).then(resp => resp.json()).then(book => {
             document.querySelector("#edit-title").value = movie.title;
             document.querySelector("#edit-id").value = movie.id;
             document.querySelector("#edit-rating").value = movie.rating;
@@ -111,9 +107,46 @@
         populateDropDown();
     });
 
-    fetch("http://localhost:3000/movies", {method: "DELETE"});
+    //fetch("http://localhost:3000/movies", {method: "DELETE"});
 
     // createAuthor(jimDavis);
 
-    // createBook(newBook).then(() => fetch("http://localhost:3000/books")).then(resp => resp.json()).then(data => console.log(data));
+
+
+    const createMovie = async (movie) => {
+        try {
+            const url = `http://localhost:3000/movies`;
+            const options = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(movie)
+            };
+            const resp = await fetch(url, options);
+            const newMovie = await resp.json();
+            return movie;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const newMovie = {
+        "id": document.querySelector("#add-id").value,
+        "title": document.querySelector("#add-title").value,
+        "rating": document.querySelector("#add-rating").value
+    }
+    document.querySelector("#addMovie").addEventListener("submit", async (e)=>{
+        e.preventDefault();
+        const newMovie = {
+            "id": document.querySelector("#add-id").value,
+            "title": document.querySelector("#add-title").value,
+            "rating": document.querySelector("#add-rating").value
+        };
+
+        await createMovie(newMovie);
+        fetch("http://localhost:3000/movies")
+            .then(resp => resp.json())
+            .then(data => console.log(data));
+    })
 })();

@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<h1>THIS IS A LIBRARY!</h1>
-<h3>DON'T YOU KNOW YOU'RE SUPPOSED TO BE QUIET IN THE LIBRARY?!</h3>
+<h1>Now Showing at the Fishback-Gonzales Theater</h1>
+<h3>Select a Movie</h3>
 <form name="editForm">
 
 <!--    document.querySelector("#edit-title").value = movie.title;-->
@@ -23,9 +23,35 @@
     <input type="text" id="edit-id">
 <!--    <label for="edit-year">Book Year Published:</label>-->
 <!--    <input type="text" id="edit-year">-->
-    <label for="edit-rating">Rate Me:</label><br>
-    <input type="text" id="edit-rating">
+    <label for="edit-rating">Star Rating:</label>
+    <select id="edit-rating" name ="edit-rating">Star Rating</select>
     <button>Submit Edit</button>
+</form>
+<br>
+<br>
+<form id="addMovie" name="addMovie">
+
+    <!--    document.querySelector("#edit-title").value = movie.title;-->
+    <!--    document.querySelector("#edit-id").value = movie.id;-->
+    <!--    document.querySelector("#edit-rating").value = movie.rating;-->
+
+    <label for="add-title">Movie Title:</label>
+    <input type="text" id="add-title">
+    <!--    <label for="edit-isbn">Book ISBN:</label>-->
+    <!--    <input type="text" id="edit-isbn">-->
+    <label for="add-id">Movie ID:</label>
+    <input type="text" id="add-id">
+    <!--    <label for="edit-year">Book Year Published:</label>-->
+    <!--    <input type="text" id="edit-year">-->
+    <label for="add-rating">Rate Me:</label>
+    <select id="add-rating" name="add-rating">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <button>Submit New Movie</button>
 </form>
 <script src="js/movies-application.js"></script>
 </body>
