@@ -3,71 +3,32 @@
 (() => {
     fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => console.log(data));
 
-    // const createMovie = async (movie) => {
-    //     try {
-    //         const url = `http://localhost:3000/movies`;
-    //         const options = {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(movie)
-    //         };
-    //         const resp = await fetch(url, options);
-    //         const newMovie = await resp.json();
-    //         return newMovie;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+// This is the edit movie function
+
+    const editMovie = async (id, movie) => {
+        try {
+            const url = `http://localhost:3000/movies/${id}`;
+            const options = {
+                method: "PATCH", // or PUT, but that will replace the ENTIRE object.
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(movie)
+            };
+            const resp = await fetch(url, options);
+            const newMovie = await resp.json();
+            return newMovie;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+document.querySelector("#editForm").addEventListener("submit", async (e)=>{
+    editMovie("id", document.querySelector("#edit-select").value)
+})
 
 
-    // const createAuthor = async (author) => {
-    //     try {
-    //         const url = `http://localhost:3000/authors`;
-    //         const options = {
-    //             method: "POST",
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(author)
-    //         };
-    //         const resp = await fetch(url, options);
-    //         const newAuthor = await resp.json();
-    //         return newAuthor;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-
-    // const editMovie = async (id, movie) => {
-    //     try {
-    //         const url = `http://localhost:3000/movies/${id}`;
-    //         const options = {
-    //             method: "PATCH", // or PUT, but that will replace the ENTIRE object.
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(movie)
-    //         };
-    //         const resp = await fetch(url, options);
-    //         const newMovie = await resp.json();
-    //         return newMovie;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-
-
-
-    // const jimDavis = {
-    //     "name": "Jim Davis",
-    //     "birthYear": 1945,
-    //     "deathYear": null,
-    //     "nationality": "American"
-    // }
-
-    // editMovie(5, {"Title": 5});
+    // This is the dropdown for the list of movies
 
     function populateDropDown() {
         fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => {
@@ -107,12 +68,15 @@
         populateDropDown();
     });
 
+
+// This is the beginning of the DELETE functionality
+
     //fetch("http://localhost:3000/movies", {method: "DELETE"});
 
-    // createAuthor(jimDavis);
 
 
 
+// This is the function to create the New Movie Object
     const createMovie = async (movie) => {
         try {
             const url = `http://localhost:3000/movies`;
@@ -131,13 +95,10 @@
         }
     }
 
-    const newMovie = {
-        "id": document.querySelector("#add-id").value,
-        "title": document.querySelector("#add-title").value,
-        "rating": document.querySelector("#add-rating").value
-    }
+    //This is the add movie function
+
     document.querySelector("#addMovie").addEventListener("submit", async (e)=>{
-        e.preventDefault();
+
         const newMovie = {
             "id": document.querySelector("#add-id").value,
             "title": document.querySelector("#add-title").value,

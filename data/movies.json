@@ -14,6 +14,16 @@
       "id": "3",
       "title": "The Grinch",
       "rating": "5"
+    },
+    {
+      "id": "5",
+      "title": "Dawn of the Dead",
+      "rating": "1"
+    },
+    {
+      "id": "6",
+      "title": "The Big Lebowski",
+      "rating": "4"
     }
   ]
 }
