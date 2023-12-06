@@ -4,6 +4,16 @@
       "id": 1,
       "title": "Shrek",
       "rating": 5
+    },
+    {
+      "id": "2",
+      "title": "clue",
+      "rating": "4"
+    },
+    {
+      "id": "3",
+      "title": "The Grinch",
+      "rating": "5"
     }
   ]
 }
