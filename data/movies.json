@@ -7,23 +7,38 @@
     },
     {
       "id": "2",
-      "title": "clue",
-      "rating": "4"
-    },
-    {
-      "id": "3",
-      "title": "The Grinch",
+      "title": "DAWN OF THE DEAD",
       "rating": "5"
     },
     {
-      "id": "5",
-      "title": "Dawn of the Dead",
+      "id": "3",
+      "title": "Clue",
       "rating": "1"
+    },
+    {
+      "id": "5",
+      "title": "Halls moving castle ",
+      "rating": "5"
     },
     {
       "id": "6",
       "title": "The Big Lebowski",
       "rating": "4"
+    },
+    {
+      "id": "NV9amD6",
+      "title": "The ring ",
+      "rating": "1"
+    },
+    {
+      "id": "7",
+      "title": "The Meg",
+      "rating": "1"
+    },
+    {
+      "id": "20",
+      "title": "Killer Clowens ",
+      "rating": "1"
     }
   ]
 }

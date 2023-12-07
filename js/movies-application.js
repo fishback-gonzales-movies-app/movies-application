@@ -24,8 +24,10 @@
     }
 
 document.querySelector("#editForm").addEventListener("submit", async (e)=>{
-    editMovie("id", document.querySelector("#edit-select").value)
+    e.preventDefault()
+    editMovie("id", {"title":document.querySelector("#edit-select").value})
 })
+
 
 
     // This is the dropdown for the list of movies
@@ -47,7 +49,7 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
 
     document.querySelector("#edit-select").addEventListener("change", (e) => {
         const movieId = e.target.value;
-        fetch("http://localhost:3000/books/" + movieId).then(resp => resp.json()).then(book => {
+        fetch("http://localhost:3000/movies/" + movieId).then(resp => resp.json()).then(book => {
             document.querySelector("#edit-title").value = movie.title;
             document.querySelector("#edit-id").value = movie.id;
             document.querySelector("#edit-rating").value = movie.rating;
@@ -58,9 +60,9 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
 
     document.forms.editForm.addEventListener("submit", e => {
         e.preventDefault();
-        // let id = document.querySelector("#edit-select").value;
+        let id = document.querySelector("#edit-select").value;
         let title = document.querySelector("#edit-title").value;
-        let id = document.querySelector("#edit-id").value;
+        // let id = document.querySelector("#edit-id").value;
         let rating = document.querySelector("#edit-rating").value;
         // let publishedYear = document.querySelector("#edit-year").value;
         // let summary = document.querySelector("#edit-summary").value;
@@ -110,4 +112,8 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
             .then(resp => resp.json())
             .then(data => console.log(data));
     })
+
+    document.querySelector("#movieChoice").innerHTML = document.querySelector("#editForm").value
+
 })();
+
