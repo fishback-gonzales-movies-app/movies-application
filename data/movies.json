@@ -1,14 +1,14 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "The Grinch 2",
-      "rating": "1"
+      "title": "The Little Mermaid",
+      "rating": "5",
+      "id": 1
     },
     {
       "id": "2",
-      "title": "Shrek 2",
-      "rating": "3"
+      "title": "Shrek",
+      "rating": "5"
     },
     {
       "id": "4",
@@ -16,9 +16,9 @@
       "rating": "3"
     },
     {
-      "id": "3",
-      "title": "Shrek 2",
-      "rating": "3"
+      "title": "Boots",
+      "rating": "3",
+      "id": "3"
     },
     {
       "id": "44",
@@ -26,9 +26,29 @@
       "rating": "1"
     },
     {
-      "id": "6",
-      "title": "The Big Lebowski",
-      "rating": "4"
+      "title": "Hals Moving Castle",
+      "rating": "5",
+      "id": "6"
+    },
+    {
+      "title": "The Ring 2",
+      "rating": "5",
+      "id": "7"
+    },
+    {
+      "title": "The little mermaid 2",
+      "rating": "4",
+      "id": "12"
+    },
+    {
+      "id": "55",
+      "title": "Killer Clowns from Space ",
+      "rating": "3"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "5",
+      "id": "34"
     }
   ]
 }
