@@ -130,7 +130,33 @@
 
 // This is the beginning of the DELETE functionality-------------------------------------------
 
-    //fetch("http://localhost:3000/movies", {method: "DELETE"});
+     document.querySelector("#deleteButton").addEventListener("click", (e) => {
+         e.preventDefault()
+
+         const deleteMovie = async (movie) => {
+             try {
+                 const url = `http://localhost:3000/movies/${id}`;
+                 const options = {
+                     method: "DELETE",
+
+                     };
+                 const resp = await fetch(url, options);
+                 const deletedMovie = await resp.json();
+                 return deletedMovie;
+             } catch (error) {
+                 console.error(error);
+             }
+         }}
+     });
+
+
+
+
+
+
+
+
+
 
 
 
