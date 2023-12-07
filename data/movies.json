@@ -2,43 +2,33 @@
   "movies": [
     {
       "id": 1,
-      "title": "Shrek",
-      "rating": 5
+      "title": "Shrek 3",
+      "rating": "3"
     },
     {
       "id": "2",
-      "title": "DAWN OF THE DEAD",
-      "rating": "5"
+      "title": "clue",
+      "rating": "4"
+    },
+    {
+      "id": "4",
+      "title": "Shrek 2",
+      "rating": "3"
     },
     {
       "id": "3",
-      "title": "Clue",
-      "rating": "1"
+      "title": "The Grinch 2",
+      "rating": "4"
     },
     {
-      "id": "5",
-      "title": "Halls moving castle ",
-      "rating": "5"
+      "id": "44",
+      "title": "The bigger Lebowski",
+      "rating": "4"
     },
     {
       "id": "6",
       "title": "The Big Lebowski",
       "rating": "4"
-    },
-    {
-      "id": "NV9amD6",
-      "title": "The ring ",
-      "rating": "1"
-    },
-    {
-      "id": "7",
-      "title": "The Meg",
-      "rating": "1"
-    },
-    {
-      "id": "20",
-      "title": "Killer Clowens ",
-      "rating": "1"
     }
   ]
 }

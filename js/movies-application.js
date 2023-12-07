@@ -23,10 +23,26 @@
         }
     }
 
+    // Searching The
+    const findMovieIdByTitle = async (title) => {
+        // This is just a placeholder. You need to implement the actual logic
+        // depending on how your movies data is stored or can be queried.
+        const resp = await fetch(`http://localhost:3000/movies/title=${title}`);
+        const movies = await resp.json();
+        return movies.length > 0 ? movies[0].id : null; // Assuming the first match is what you want
+    };
+
 document.querySelector("#editForm").addEventListener("submit", async (e)=>{
     e.preventDefault()
-    editMovie("id", {"title":document.querySelector("#edit-select").value})
-})
+    const titleToEdit = document.querySelector("#edit-title").value
+    const movieId = await findMovieIdByTitle(titleToEdit);
+    const updatedMovieData = {
+        title: document.querySelector("#edit-title").value,
+        rating: document.querySelector("#edit-rating").value,
+    };
+    const updatedMovie = await editMovie(movieId,updatedMovieData)
+    document.querySelector("#movieChoice").innerText = `Updated Movie: ${updatedMovie.title} ${updatedMovie.rating}`;
+});
 
 
 
@@ -43,7 +59,35 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
                 dropDown.appendChild(option);
             }
         })
+            .catch(error => {
+                console.error('Error populating dropdown:', error);
+            });
     }
+
+    // Event listener for dropdown change
+    const dropDown = document.getElementById("edit-select");
+    dropDown.addEventListener("change", (e) => {
+        const selectedMovieId = e.target.value;
+
+        // Fetch the details of the selected movie
+        fetch(`http://localhost:3000/movies/${selectedMovieId}`)
+            .then(resp => resp.json())
+            .then(movie => {
+                // Update the #movieChoice div with the movie details
+                const movieChoiceDiv = document.getElementById("movieChoice");
+                movieChoiceDiv.innerHTML = `
+                        <p>Title: ${movie.title}</p>
+                        <p>ID: ${movie.id}</p>
+                        <p>Rating: ${movie.rating}</p>
+                    `;
+            })
+            .catch(error => {
+                console.error('Error fetching movie details:', error);
+                document.getElementById("movieChoice").innerText = 'Error loading movie details';
+            });
+    });
+
+
 
     populateDropDown();
 
@@ -56,6 +100,7 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
             // document.querySelector("#edit-year").value = book.publishedYear;
             // document.querySelector("#edit-summary").value = book.summary;
         })
+
     });
 
     document.forms.editForm.addEventListener("submit", e => {
@@ -91,7 +136,7 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
             };
             const resp = await fetch(url, options);
             const newMovie = await resp.json();
-            return movie;
+            return newMovie;
         } catch (error) {
             console.error(error);
         }
@@ -111,9 +156,10 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
         fetch("http://localhost:3000/movies")
             .then(resp => resp.json())
             .then(data => console.log(data));
+
     })
 
-    document.querySelector("#movieChoice").innerHTML = document.querySelector("#editForm").value
+
 
 })();
 
