@@ -2,13 +2,13 @@
   "movies": [
     {
       "id": 1,
-      "title": "Shrek 3",
-      "rating": "3"
+      "title": "The Grinch 2",
+      "rating": "1"
     },
     {
       "id": "2",
-      "title": "clue",
-      "rating": "4"
+      "title": "Shrek 2",
+      "rating": "3"
     },
     {
       "id": "4",
@@ -17,13 +17,13 @@
     },
     {
       "id": "3",
-      "title": "The Grinch 2",
-      "rating": "4"
+      "title": "Shrek 2",
+      "rating": "3"
     },
     {
       "id": "44",
-      "title": "The bigger Lebowski",
-      "rating": "4"
+      "title": "The Grinch 2",
+      "rating": "1"
     },
     {
       "id": "6",
