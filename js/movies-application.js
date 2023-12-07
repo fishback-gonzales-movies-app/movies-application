@@ -9,7 +9,7 @@
         try {
             const url = `http://localhost:3000/movies/${id}`;
             const options = {
-                method: "PATCH", // or PUT, but that will replace the ENTIRE object.
+                method: "PUT", // or PUT, but that will replace the ENTIRE object.
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -32,19 +32,34 @@
 
     //Edit Movie Form----------------------------------------------------------------------------
 
-document.querySelector("#editForm").addEventListener("submit", async (e)=>{
-    e.preventDefault()
-    const titleToEdit = document.querySelector("#edit-title").value
-    const movieId = await findMovieIdByTitle(titleToEdit);
-    const updatedMovieData = {
-        title: document.querySelector("#edit-title").value,
-        rating: document.querySelector("#edit-rating").value,
-    };
-    const updatedMovie = await editMovie(movieId,updatedMovieData)
-    const movieChoiceDiv =document.querySelector("#movieChoice")
-        movieChoiceDiv.innerHTML = `Updated Movie: <p>Title: ${updatedMovie.title}</p> <p>Rating: ${updatedMovie.rating}</p>`;
-    populateDropDown();
-});
+    document.querySelector("#editForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Get the selected movie ID from the dropdown
+        const selectedMovieId = document.querySelector("#edit-select").value;
+
+        // Get the updated movie data from the form
+        const updatedMovieData = {
+            title: document.querySelector("#edit-title").value.trim(),
+            rating: document.querySelector("#edit-rating").value,
+            id: document.querySelector("#edit-select").value,
+        };
+
+        // Update the movie details on the server
+        const updatedMovie = await editMovie(selectedMovieId, updatedMovieData);
+
+        // Update the "Updated Movie" section with the user-inputted data
+        const movieChoiceDiv = document.querySelector("#movieChoice");
+        movieChoiceDiv.innerHTML = `
+        Updated Movie:
+        <p>Title: ${updatedMovie.title}</p>
+        <p>Rating: ${updatedMovie.rating}</p>
+        <p>ID: ${updatedMovie.id}</p>
+    `;
+
+        // Re-populate the dropdown with the updated movie list
+        populateDropDown();
+    });
 
 // This is the dropdown for the list of movies--------------------------------------------------
 
@@ -96,13 +111,19 @@ document.querySelector("#editForm").addEventListener("submit", async (e)=>{
 
     document.querySelector("#edit-select").addEventListener("change", (e) => {
         const movieId = e.target.value;
-        fetch("http://localhost:3000/movies/" + movieId).then(resp => resp.json()).then(book => {
+        fetch("http://localhost:3000/movies/" + movieId)
+            .then(resp => resp.json())
+            .then(movie => {
+                console.log("Fetched movie details:", movie);  // Log the fetched movie for debugging
             document.querySelector("#edit-title").value = movie.title;
             document.querySelector("#edit-id").value = movie.id;
             document.querySelector("#edit-rating").value = movie.rating;
 
         })
-
+            .catch(error => {
+                console.error('Error fetching movie details:', error);
+                // Handle the error, e.g., display an error message
+            });
     });
 
 
