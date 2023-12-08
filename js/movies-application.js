@@ -5,24 +5,35 @@
     // Time out
 
     const windowLoad = function (){
-        document.body.style.visibility = "visible"
-        // document.addEventListener("DOMContentLoaded", async (e) => {
-        //
-        // const movieList = async () => {
-        //     try {
-        //         const resp = await fetch(`http://localhost:3000/movies/`);
-        //         const showMovies = await resp.json();
-        //
-        //
-        //         const moviesListerHtml = showMovies.map(movie => `<div>Title: ${movie.title} &nbsp; Rating: ${movie.rating} &nbsp; ID: ${movie.id}</div>`).join('');
-        //
-        //         document.querySelector("#movieChoice").innerHTML = moviesListerHtml;
-        //     } catch (error) {
-        //         console.error('Error fetching movies:', error);
-        //         document.querySelector("#movieChoice").innerHTML = 'Failed to load movies.';
-        //     }
-        // } } )
+        document.body.style.visibility = "visible";
+
+        const loadMovies = async () => {
+            try {
+                const resp = await fetch(`http://localhost:3000/movies/`);
+                const showMovies = await resp.json();
+
+                const moviesHtml = showMovies.map(movie =>
+
+                        `<h2 class="card-header">${movie.title}</h2><div class="card-body"> Rating: ${movie.rating}  ID: ${movie.id}</div>`
+                ).join('');
+
+                document.querySelector("#movieChoice").innerHTML = moviesHtml.toUpperCase();
+            } catch (error) {
+                console.error('Error fetching movies:', error);
+                document.querySelector("#movieChoice").innerHTML = 'Failed to load movies.';
+            }
         };
+
+        // Call loadMovies inside windowLoad
+        loadMovies();
+    };
+
+// Add an event listener to call windowLoad when the window is fully loaded
+    window.addEventListener('load', windowLoad);
+
+
+// Load movies when the page loads
+
     window.setTimeout(windowLoad,3000);
     alert('Loading');
 
@@ -40,7 +51,7 @@
             const showMovies = await resp.json();
 
 
-            const moviesHtml = showMovies.map(movie => `<div>Title: ${movie.title} &nbsp; Rating: ${movie.rating} &nbsp; ID: ${movie.id}</div>`).join('');
+            const moviesHtml = showMovies.map(movie => `<h2 class="card-header">${movie.title}</h2><div class="card-body"> Rating: ${movie.rating}  ID: ${movie.id}</div>`).join('');
 
             document.querySelector("#movieChoice").innerHTML = moviesHtml;
         } catch (error) {
@@ -152,9 +163,10 @@
                 // Update the #movieChoice div with the movie details
                 const movieChoiceDiv = document.getElementById("movieChoice");
                 movieChoiceDiv.innerHTML = `
-                        <p>Title: ${movie.title}</p>
-                        <p>ID: ${movie.id}</p>
-                        <p>Rating: ${movie.rating}</p>
+                        <h2 class="card-header"> ${movie.title}</h2>
+                        <p class="card-body ">ID: ${movie.id}</p>
+                        <p class="card-body">Rating: ${movie.rating}</p>
+                        <p class="card-body">Genre: ${movie.genre}</p>
                     `;
             })
             .catch(error => {
@@ -178,7 +190,7 @@
             document.querySelector("#edit-title").value = movie.title;
             document.querySelector("#edit-id").value = movie.id;
             document.querySelector("#edit-rating").value = movie.rating;
-
+            document.querySelector("#edit-genre").value = movie.genre;
         })
             .catch(error => {
                 console.error('Error fetching movie details:', error);
@@ -253,6 +265,20 @@
     //This is the add movie function---------------------------------------
 
     document.querySelector("#addMovie").addEventListener("submit", async (e)=>{
+        e.preventDefault()
+
+        const newMovieId = document.querySelector("#add-id").value;
+
+        const existingMovies = await fetch("http://localhost:3000/movies")
+            .then(resp => resp.json())
+            .catch(error => {
+                console.error('Error fetching movies:', error);
+                return [];
+            });
+        if (existingMovies.some(movie => movie.id === newMovieId)) {
+            alert("That ID is taken");
+            return;
+        }
 
         const newMovie = {
             "id": document.querySelector("#add-id").value,

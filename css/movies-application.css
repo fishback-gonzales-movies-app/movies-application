@@ -1,5 +1,6 @@
 body{
+    font-family: Luminari, sans-serif;
     visibility: hidden;
-    background-image: url("images/pexels-theater.jpeg");
+   background: linear-gradient( #004e92 ,#d27575);
     background-size: cover;
 }

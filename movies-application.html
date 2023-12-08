@@ -22,8 +22,8 @@
     <input type="text" id="edit-title">
 <!--    <label for="edit-isbn">Book ISBN:</label>-->
 <!--    <input type="text" id="edit-isbn">-->
-<!--    <label for="edit-id">Movie ID:</label>-->
-<!--    <input type="text" id="edit-id">-->
+    <label for="edit-genre">Genre:</label>
+    <input type="text" id="edit-genre">
 <!--    <label for="edit-year">Book Year Published:</label>-->
 <!--    <input type="text" id="edit-year">-->
     <label for="edit-rating">Star Rating:</label>
@@ -37,6 +37,7 @@
     </select>
     <button>Submit Edit</button>
     <button id="deleteButton" type="button">Delete Movie</button>
+
     <button id="seeAllMovies" type="button">See All Movies</button>
 </form>
 </div>
@@ -56,8 +57,10 @@
     <!--    <input type="text" id="edit-isbn">-->
     <label for="add-id">Movie ID:</label>
     <input type="text" id="add-id" required pattern="[0-5000]+" inputmode="numeric"  placeholder="Enter a number ID">
-    <!--    <label for="edit-year">Book Year Published:</label>-->
-    <!--    <input type="text" id="edit-year">-->
+
+    <label for="add-genre">Genre:</label>
+    <input type="text" id="add-genre">
+
     <label for="add-rating">Rate Me:</label>
     <select id="add-rating" name="add-rating">
         <option>1</option>
@@ -72,7 +75,9 @@
 </form>
 </div>
 <br>
+
 <div  class="card m-4" style="width: max-content " id="movieChoice">
+    <h2 class="card-header">MOVIES</h2>
     <p class="card-body "></p>
 
 </div>
