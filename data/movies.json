@@ -1,24 +1,9 @@
 {
   "movies": [
     {
-      "id": "2",
-      "title": "Shrek",
-      "rating": "5"
-    },
-    {
       "title": "Boots",
       "rating": "3",
       "id": "3"
-    },
-    {
-      "title": "The Grinch 2",
-      "rating": "1",
-      "id": "44"
-    },
-    {
-      "title": "Hals Moving Castle",
-      "rating": "5",
-      "id": "6"
     },
     {
       "title": "The Ring 2",
@@ -31,8 +16,8 @@
       "id": "12"
     },
     {
-      "title": "Lord of the Rings",
-      "rating": "5",
+      "title": "The Two Towers",
+      "rating": "1",
       "id": "34"
     }
   ]
