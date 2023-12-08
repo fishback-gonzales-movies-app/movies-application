@@ -58,7 +58,7 @@
     `;
 
         // Re-populate the dropdown with the updated movie list
-        populateDropDown();
+        //populateDropDown();
     });
 
 // This is the dropdown for the list of movies--------------------------------------------------
@@ -130,7 +130,41 @@
 
 // This is the beginning of the DELETE functionality-------------------------------------------
 
-    //fetch("http://localhost:3000/movies", {method: "DELETE"});
+     document.querySelector("#deleteButton").addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const selectedMovieId = document.querySelector("#edit-select").value; //
+
+        if (!selectedMovieId) {
+            alert("Please select a movie to delete.");
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/movies/${selectedMovieId}`, { method: "DELETE" });
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+
+            // Update  after  deletion-----------------------------------------
+            alert("Movie deleted successfully.");
+            populateDropDown();
+            document.getElementById("movieChoice").innerHTML = '';
+
+        } catch (error) {
+            console.error('Error deleting movie:', error);
+            alert("Failed to delete movie.");
+        }
+    });
+
+
+
+
+
+
+
+
+
 
 
 

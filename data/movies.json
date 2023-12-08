@@ -1,19 +1,9 @@
 {
   "movies": [
     {
-      "title": "The Little Mermaid",
-      "rating": "5",
-      "id": 1
-    },
-    {
       "id": "2",
       "title": "Shrek",
       "rating": "5"
-    },
-    {
-      "id": "4",
-      "title": "Shrek 2",
-      "rating": "3"
     },
     {
       "title": "Boots",
@@ -21,9 +11,9 @@
       "id": "3"
     },
     {
-      "id": "44",
       "title": "The Grinch 2",
-      "rating": "1"
+      "rating": "1",
+      "id": "44"
     },
     {
       "title": "Hals Moving Castle",
@@ -39,11 +29,6 @@
       "title": "The little mermaid 2",
       "rating": "4",
       "id": "12"
-    },
-    {
-      "id": "55",
-      "title": "Killer Clowns from Space ",
-      "rating": "3"
     },
     {
       "title": "Lord of the Rings",
