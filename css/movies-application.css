@@ -1,3 +1,5 @@
-root{
-    background-image: url("images/theater.jpg");
+body{
+    visibility: hidden;
+    background-image: url("images/pexels-theater.jpeg");
+    background-size: cover;
 }

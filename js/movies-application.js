@@ -1,7 +1,33 @@
 "use strict";
 
+
 (() => {
+    // Time out
+
+    const windowLoad = function (){
+        document.body.style.visibility = "visible"
+        // document.addEventListener("DOMContentLoaded", async (e) => {
+        //
+        // const movieList = async () => {
+        //     try {
+        //         const resp = await fetch(`http://localhost:3000/movies/`);
+        //         const showMovies = await resp.json();
+        //
+        //
+        //         const moviesListerHtml = showMovies.map(movie => `<div>Title: ${movie.title} &nbsp; Rating: ${movie.rating} &nbsp; ID: ${movie.id}</div>`).join('');
+        //
+        //         document.querySelector("#movieChoice").innerHTML = moviesListerHtml;
+        //     } catch (error) {
+        //         console.error('Error fetching movies:', error);
+        //         document.querySelector("#movieChoice").innerHTML = 'Failed to load movies.';
+        //     }
+        // } } )
+        };
+    window.setTimeout(windowLoad,3000);
+    alert('Loading');
+
     fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => console.log(data));
+
 
 
     // Show All Movies-----------------------------------------------------------------------
