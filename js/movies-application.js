@@ -3,6 +3,40 @@
 (() => {
     fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => console.log(data));
 
+
+    // Show All Movies-----------------------------------------------------------------------
+
+    document.querySelector("#seeAllMovies").addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        try {
+            const resp = await fetch(`http://localhost:3000/movies/`);
+            const showMovies = await resp.json();
+
+
+            const moviesHtml = showMovies.map(movie => `<div>Title: ${movie.title} &nbsp; Rating: ${movie.rating} &nbsp; ID: ${movie.id}</div>`).join('');
+
+            document.querySelector("#movieChoice").innerHTML = moviesHtml;
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+            document.querySelector("#movieChoice").innerHTML = 'Failed to load movies.';
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // This is the edit movie function------------------------------------------------------
 
     const editMovie = async (id, movie) => {
@@ -57,7 +91,7 @@
         <p>ID: ${updatedMovie.id}</p>
     `;
 
-        // Re-populate the dropdown with the updated movie list
+        // Re-populate the dropdown with the updated movie list******************************Fix the updated list
         //populateDropDown();
     });
 
@@ -149,6 +183,8 @@
             // Update  after  deletion-----------------------------------------
             alert("Movie deleted successfully.");
             populateDropDown();
+            //*************************************Fix Dropdown to only contain updated list.***************************
+
             document.getElementById("movieChoice").innerHTML = '';
 
         } catch (error) {
