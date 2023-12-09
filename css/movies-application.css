@@ -29,8 +29,16 @@ body{
     text-align: center;
     background-color:#bf5454 ;
 
-}
 
+
+}
+#lights{
+height:auto;
+    width: 85%;
+    max-height: 100px;
+    margin: 0 auto;
+    display: block;
+}
 .card-header{
     background-color: #bf5454;
 }
