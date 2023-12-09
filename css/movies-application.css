@@ -1,6 +1,41 @@
+@font-face {
+    font-family: 'NightAtTheOperaNF';
+    src: url('/images/night-at-the-opera-nf/NightAtTheOperaNF.otf') format('opentype'); /* Adjust the path and format as needed */
+}
+
 body{
-    font-family: Luminari, sans-serif;
+    font-family: NightAtTheOperaNF, sans-serif;
     visibility: hidden;
-   background: linear-gradient( #004e92 ,#d27575);
+   background: linear-gradient( #8a316d ,#504040);
     background-size: cover;
+}
+
+.modal {
+    display: none;
+        position: fixed;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #992525;
+        padding: 20px;
+        border: 1px solid #888;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        z-index: 1000; /* Ensures it appears above other content */
+    }
+#mainHead{
+    font-family: 'NightAtTheOperaNF', sans-serif;
+    text-align: center;
+    background-color:#992525 ;
+
+}
+
+.card-header{
+    background-color: #992525;
+}
+.card-body{
+    background-color: #ea9999;
+}
+#mainCard{
+    background-color: #8a316d;
 }

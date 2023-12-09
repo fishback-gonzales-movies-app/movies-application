@@ -1,29 +1,70 @@
 {
   "movies": [
     {
-      "title": "Boots",
-      "rating": "3",
-      "id": "3"
+      "id": "4",
+      "title": "The Grinch",
+      "rating": "4 Star",
+      "genre": "Comedy"
     },
     {
-      "title": "The Ring 2",
-      "rating": "5",
-      "id": "7"
+      "id": "22",
+      "title": "Dawn of the Dead",
+      "rating": "3 Star",
+      "genre": "Comedy"
     },
     {
-      "title": "The little mermaid 2",
-      "rating": "4",
-      "id": "12"
+      "id": "5",
+      "title": "The Big Short",
+      "rating": "5 Star",
+      "genre": "Drama"
     },
     {
-      "title": "The Two Towers",
-      "rating": "1",
-      "id": "34"
+      "id": "20",
+      "title": "The Goonies",
+      "rating": "4 Star",
+      "genre": "Comedy"
     },
     {
-      "id": "13",
       "title": "The Big Lebowski",
-      "rating": "1"
+      "rating": "3 Star",
+      "genre": "Comedy",
+      "id": "I6FD_61"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "0auHEUs"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "mnsKLJH"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "j6E-vxY"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "1ZW_6Ou"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "uKI4jlM"
+    },
+    {
+      "title": "blues clues",
+      "rating": "5 Star",
+      "genre": "kids",
+      "id": "Se5Ad6U"
     }
   ]
 }
