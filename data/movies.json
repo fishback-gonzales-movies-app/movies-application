@@ -1,24 +1,28 @@
 {
   "movies": [
     {
-      "title": "Boots",
-      "rating": "3",
-      "id": "3"
+      "id": "4",
+      "title": "The Grinch",
+      "rating": "4 Star",
+      "genre": "Comedy"
     },
     {
-      "title": "The Ring 2",
-      "rating": "5",
-      "id": "7"
+      "id": "22",
+      "title": "Dawn of the Dead",
+      "rating": "3 Star",
+      "genre": "Comedy"
     },
     {
-      "title": "The little mermaid 2",
-      "rating": "4",
-      "id": "12"
+      "id": "5",
+      "title": "The Big Short",
+      "rating": "5 Star",
+      "genre": "Drama"
     },
     {
-      "title": "The Two Towers",
-      "rating": "1",
-      "id": "34"
+      "title": "The Big Lebowski",
+      "rating": "5 Star",
+      "genre": "Comedy",
+      "id": "W0IxxCA"
     }
   ]
 }
