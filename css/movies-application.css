@@ -11,6 +11,7 @@ body{
 }
 
 .modal {
+    background-image: url("https://tenor.com/view/count-down-movie-countdown-movie-reel-countdown-gif-16717513");
     display: none;
         position: fixed;
         text-align: center;
@@ -37,5 +38,10 @@ body{
     background-color: #ea9999;
 }
 #mainCard{
-    background-color: #8a316d;
+    background-color: #cbbeea;
 }
+
+#modalText{
+
+}
+

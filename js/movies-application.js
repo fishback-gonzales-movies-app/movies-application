@@ -41,7 +41,7 @@
         showModal();
         setTimeout(() => {
             loadMovies();
-        }, 4000); // 4000 milliseconds = 4 seconds
+        }, 5000); // 4000 milliseconds = 4 seconds
     });
 
 
