@@ -19,52 +19,22 @@
       "genre": "Drama"
     },
     {
-      "id": "20",
-      "title": "The Goonies",
-      "rating": "4 Star",
-      "genre": "Comedy"
+      "title": "The Big Lebowski",
+      "rating": "5 Star",
+      "genre": "Comedy",
+      "id": "GNUvbtf"
     },
     {
       "title": "The Big Lebowski",
-      "rating": "3 Star",
-      "genre": "Comedy",
-      "id": "I6FD_61"
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "4 Star",
-      "genre": "Action-Fantasy",
-      "id": "0auHEUs"
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "4 Star",
-      "genre": "Action-Fantasy",
-      "id": "mnsKLJH"
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "4 Star",
-      "genre": "Action-Fantasy",
-      "id": "j6E-vxY"
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "4 Star",
-      "genre": "Action-Fantasy",
-      "id": "1ZW_6Ou"
-    },
-    {
-      "title": "Lord of the Rings",
-      "rating": "4 Star",
-      "genre": "Action-Fantasy",
-      "id": "uKI4jlM"
-    },
-    {
-      "title": "blues clues",
       "rating": "5 Star",
-      "genre": "kids",
-      "id": "Se5Ad6U"
+      "genre": "Comedy",
+      "id": "W0IxxCA"
+    },
+    {
+      "title": "The Big Lebowski",
+      "rating": "5 Star",
+      "genre": "Comedy",
+      "id": "rw8q2ZL"
     }
   ]
 }

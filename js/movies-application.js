@@ -11,20 +11,32 @@
         document.body.style.visibility = "hidden";
     }
 
-    // Function to hide the modal
+    // Function to hide the modal------------------------------------------------------------
     function hideModal() {
         document.getElementById("loadingModal").style.display = "none";
         document.body.style.visibility = "visible"; // Make the body visible after hiding the modal
     }
 
-    // Function to load and display movies
+
+
+// Function to load and display movies-------------------------------------------------------
+
     const loadMovies = async () => {
         try {
             const resp = await fetch(`http://localhost:3000/movies/`);
             const showMovies = await resp.json();
 
             const moviesHtml = showMovies.map(movie =>
-                `<h2 class="card-header">${movie.title}</h2><div class="card-body"> Rating: ${movie.rating}  ID: ${movie.id} Genre: ${movie.genre}</div>`
+                `<div class="col-md-4 col-lg-3 mb-4">` +
+                `<div class="card">` + // Bootstrap card
+                `<h5 class="card-header">${movie.title}</h5>` +
+                `<div class="card-body">` +
+                `<p>Rating: ${movie.rating}</p>` +
+                `<p>ID: ${movie.id}</p>` +
+                `<p>Genre: ${movie.genre}</p>` +
+                `</div>` +
+                `</div>` +
+                `</div>`
             ).join('');
 
             document.querySelector("#movieChoice").innerHTML = moviesHtml;
@@ -36,7 +48,11 @@
         }
     };
 
-    // Show modal and load movies with a 4-second delay when DOM is fully loaded
+
+
+
+   // Timeout-------------------------------------------
+
     document.addEventListener('DOMContentLoaded', () => {
         showModal();
         setTimeout(() => {
@@ -58,7 +74,18 @@
             const showMovies = await resp.json();
 
 
-            const moviesHtml = showMovies.map(movie => `<h2 class="card-header">${movie.title}</h2><div class="card-body"> Rating: ${movie.rating}  ID: ${movie.id} Genre: ${movie.genre}</div>`).join('');
+            const moviesHtml = showMovies.map(movie =>
+                `<div class="col-md-4 col-lg-3 mb-4">` + // Bootstrap's responsive grid columns
+                `<div class="card">` + // Bootstrap card
+                `<h5 class="card-header">${movie.title}</h5>` + // Card header with the title
+                `<div class="card-body">` + // Card body with the rest of the information
+                `<p>Rating: ${movie.rating}</p>` +
+                `<p>ID: ${movie.id}</p>` +
+                `<p>Genre: ${movie.genre}</p>` +
+                `</div>` + // End of card body
+                `</div>` + // End of card
+                `</div>` // End of grid column
+            ).join('');
 
             document.querySelector("#movieChoice").innerHTML = moviesHtml;
         } catch (error) {
@@ -128,11 +155,18 @@
         // Update the "Updated Movie" section with the user-inputted data
         const movieChoiceDiv = document.querySelector("#movieChoice");
         movieChoiceDiv.innerHTML = `
-        Updated Movie:
-        <p>Title: ${updatedMovie.title}</p>
-        <p>Rating: ${updatedMovie.rating}</p>
-        <p>ID: ${updatedMovie.id}</p>
-        <p>Genre: ${updatedMovie.genre}</p>`;
+    <div class="row">
+        <div class="col-md-4 col-lg-3 mb-4">  <!-- Bootstrap's responsive grid columns -->
+            <div class="card">  <!-- Bootstrap card -->
+                <h5 class="card-header">${updatedMovie.title}</h5>  <!-- Card header with the title -->
+                <div class="card-body">  <!-- Card body with the rest of the information -->
+                    <p>Rating: ${updatedMovie.rating}</p>
+                    <p>ID: ${updatedMovie.id}</p>
+                    <p>Genre: ${updatedMovie.genre}</p>
+                </div>  <!-- End of card body -->
+            </div>  <!-- End of card -->
+        </div>  <!-- End of grid column -->
+    </div>`;
         // Re-populate the dropdown with the updated movie list******************************Fix the updated list
         //populateDropDown();
     });
@@ -174,16 +208,24 @@
                 // Update the #movieChoice div with the movie details
                 const movieChoiceDiv = document.getElementById("movieChoice");
                 movieChoiceDiv.innerHTML = `
-                        <h2 class="card-header"> ${movie.title}</h2>
-                        <p class="card-body ">ID: ${movie.id}</p>
-                        <p class="card-body">Rating: ${movie.rating}</p>
-                        <p class="card-body">Genre: ${movie.genre}</p>
-                    `;
+            <div class="row">
+                <div class="col-md-4 col-lg-3 mb-4">  <!-- Bootstrap's responsive grid columns -->
+                    <div class="card">  <!-- Bootstrap card -->
+                        <h5 class="card-header">${movie.title}</h5>  <!-- Card header with the title -->
+                        <div class="card-body">  <!-- Card body with the rest of the information -->
+                            <p>Rating: ${movie.rating}</p>
+                            <p>ID: ${movie.id}</p>
+                            <p>Genre: ${movie.genre}</p>
+                        </div>  <!-- End of card body -->
+                    </div>  <!-- End of card -->
+                </div>  <!-- End of grid column -->
+            </div>`;
             })
             .catch(error => {
                 console.error('Error fetching movie details:', error);
                 document.getElementById("movieChoice").innerText = 'Error loading movie details';
             });
+
 
     });
     populateDropDown();
@@ -275,35 +317,26 @@
 
     //This is the add movie function---------------------------------------
 
-    document.querySelector("#addMovie").addEventListener("submit", async (e)=>{
-        e.preventDefault()
-
-        //const newMovieId = document.querySelector("#add-title").value;
-
-        const existingMovies = await fetch("http://localhost:3000/movies")
-            .then(resp => resp.json())
-            .catch(error => {
-                console.error('Error fetching movies:', error);
-                return [];
-            });
-        //if (existingMovies.some(movie => movie.id === newMovieId)) {
-         //   alert("That ID is taken");
-         //   return;
-        //}
+    document.querySelector("#addMovie").addEventListener("submit", async (e) => {
+        e.preventDefault();
 
         const newMovie = {
-            //"id": document.querySelector("#add-id").value,
             "title": document.querySelector("#add-title").value,
             "rating": document.querySelector("#add-rating").value,
             "genre": document.querySelector("#add-genre").value
         };
 
-        await createMovie(newMovie);
-        fetch("http://localhost:3000/movies")
-            .then(resp => resp.json())
-            .then(data => console.log(data));
-        populateDropDown();
-    })
+        try {
+            const createdMovie = await createMovie(newMovie); // Assuming createMovie returns a promise
+            if (createdMovie) {
+                await loadMovies(); // Re-fetch and display movies to include the new movie
+            }
+        } catch (error) {
+            console.error('Error adding movie:', error);
+        }
+    });
+
+
 
 
 

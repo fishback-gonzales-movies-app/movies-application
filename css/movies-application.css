@@ -61,3 +61,10 @@ section{
     background-color: black;
     justify-content: center;
 }
+
+#movieChoice{
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
