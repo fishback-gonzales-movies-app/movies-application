@@ -6,7 +6,7 @@
 body{
     font-family: NightAtTheOperaNF, sans-serif;
     visibility: hidden;
-   background: linear-gradient( #8a316d ,#504040);
+   background-image: url("/images/theater.jpg");;
     background-size: cover;
 }
 
@@ -27,21 +27,29 @@ body{
 #mainHead{
     font-family: 'NightAtTheOperaNF', sans-serif;
     text-align: center;
-    background-color:#992525 ;
+    background-color:#bf5454 ;
 
 }
 
 .card-header{
-    background-color: #992525;
+    background-color: #bf5454;
 }
 .card-body{
     background-color: #ea9999;
 }
 #mainCard{
-    background-color: #cbbeea;
+    background-color: black;
 }
 
 #modalText{
 
 }
 
+section{
+    background-color: black;
+}
+
+#cardInCard, #cardInCard2{
+    background-color: black;
+    justify-content: center;
+}
