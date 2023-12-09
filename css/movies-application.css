@@ -34,8 +34,8 @@ body{
 }
 #lights{
 height:auto;
-    width: 85%;
-    max-height: 100px;
+    width: 100%;
+    max-height: 110px;
     margin: 0 auto;
     display: block;
 }
@@ -65,6 +65,6 @@ section{
 #movieChoice{
     display: flex;
     flex-wrap: wrap;
-
+    background-color: transparent;
 
 }
