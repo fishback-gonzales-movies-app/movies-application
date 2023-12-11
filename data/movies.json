@@ -1,22 +1,10 @@
 {
   "movies": [
     {
-      "title": "The Big Lebowski",
-      "rating": "5 Star",
-      "genre": "Comedy",
-      "id": "HXjZGIC"
-    },
-    {
       "title": "Clue",
       "rating": "3 Star",
       "genre": "action",
       "id": "gIKVX-0"
-    },
-    {
-      "title": "The Grinch",
-      "rating": "3 Star",
-      "genre": "Comedy",
-      "id": "nK9h9PN"
     },
     {
       "title": "Lord of the Rings",
