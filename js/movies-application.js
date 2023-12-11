@@ -18,7 +18,6 @@
     }
 
 
-
 // Function to load and display movies-------------------------------------------------------
 
     const loadMovies = async () => {
@@ -50,9 +49,7 @@
     };
 
 
-
-
-   // Timeout-------------------------------------------
+    // Timeout-------------------------------------------
 
     document.addEventListener('DOMContentLoaded', () => {
         showModal();
@@ -60,9 +57,6 @@
             loadMovies();
         }, 5000);
     });
-
-
-
 
 
     // Show All Movies-----------------------------------------------------------------------
@@ -77,7 +71,7 @@
 
             const moviesHtml = showMovies.map(movie =>
                 `<div class="col-md-4 col-lg-3 mb-4">` +
-                `<div class="card">` + // Bootstrap card
+                `<div class="card">` +
                 `<h5 class="card-header">${movie.title}</h5>` +
                 `<div class="card-body">` +
                 `<p>Rating: ${movie.rating}</p>` +
@@ -95,11 +89,6 @@
             document.querySelector("#movieChoice").innerHTML = 'Failed to load movies.';
         }
     });
-
-
-
-
-
 
 
 // This is the edit movie function------------------------------------------------------
@@ -123,16 +112,12 @@
     }
 
 
-
-
     // Searching The Title-------------------------------------------------------------
     const findMovieIdByTitle = async (title) => {
         const resp = await fetch(`http://localhost:3000/movies/title=${title}`);
         const movies = await resp.json();
         return movies.length > 0 ? movies[0].id : null;
     };
-
-
 
 
     //Edit Movie Form----------------------------------------------------------------------------
@@ -155,7 +140,7 @@
         // Update the movie details on the server----------------------------------------
         const updatedMovie = await editMovie(selectedMovieId, updatedMovieData);
 
-        // Update the "Updated Movie" section with the user-input data---------------------------
+        // Update the Updated Movie section with the user-input data---------------------------
 
         const movieChoiceDiv = document.querySelector("#movieChoice");
         movieChoiceDiv.innerHTML = `
@@ -171,13 +156,9 @@
             </div>  
         </div>  
     </div>`;
-        // Re-populate the dropdown with the updated movie list******************************Fix the updated list
-        //populateDropDown();
+
+        populateDropDown();
     });
-
-
-
-
 
 
 // This is the dropdown for the list of movies--------------------------------------------------
@@ -186,7 +167,7 @@
         fetch("http://localhost:3000/movies").then(resp => resp.json()).then(data => {
             console.log(data);
             const dropDown = document.getElementById("edit-select");
-            dropDown.innerHTML=" ";
+            dropDown.innerHTML = " ";
             for (let movie of data) {
                 const option = document.createElement("option");
                 option.value = movie.id;
@@ -235,11 +216,6 @@
     populateDropDown();
 
 
-
-
-
-
-
     //edit-select dropdown-------------------------------------------------------------------------
 
     document.querySelector("#edit-select").addEventListener("change", (e) => {
@@ -249,11 +225,11 @@
             .then(resp => resp.json())
             .then(movie => {
                 console.log("Fetched movie details:", movie);
-            document.querySelector("#edit-title").value = movie.title;
-            document.querySelector("#edit-id").value = movie.id;
-            document.querySelector("#edit-rating").value = movie.rating;
-            document.querySelector("#edit-genre").value = movie.genre;
-        })
+                document.querySelector("#edit-title").value = movie.title;
+                document.querySelector("#edit-id").value = movie.id;
+                document.querySelector("#edit-rating").value = movie.rating;
+                document.querySelector("#edit-genre").value = movie.genre;
+            })
             .catch(error => {
                 console.error('Error fetching movie details:', error);
 
@@ -261,10 +237,9 @@
     });
 
 
-
 // This is the beginning of the DELETE functionality-------------------------------------------
 
-     document.querySelector("#deleteButton").addEventListener("click", async (e) => {
+    document.querySelector("#deleteButton").addEventListener("click", async (e) => {
         e.preventDefault();
 
         const selectedMovieId = document.querySelector("#edit-select").value; //
@@ -275,18 +250,16 @@
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/movies/${selectedMovieId}`, { method: "DELETE" });
+            const response = await fetch(`http://localhost:3000/movies/${selectedMovieId}`, {method: "DELETE"});
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
 
 
-
-
             // Update  after  deletion-----------------------------------------
             alert("Movie deleted successfully.");
 
-         populateDropDown()
+            populateDropDown()
 
             document.getElementById("movieChoice").innerHTML = '';
 
@@ -295,9 +268,6 @@
             alert("Failed to delete movie.");
         }
     });
-
-
-
 
 
 // This is the function to create the New Movie Object-------------------------------------------
@@ -334,14 +304,12 @@
             const createdMovie = await createMovie(newMovie);
             if (createdMovie) {
                 await loadMovies();
+                populateDropDown()
             }
         } catch (error) {
             console.error('Error adding movie:', error);
         }
     });
-
-
-
 
 
 })();

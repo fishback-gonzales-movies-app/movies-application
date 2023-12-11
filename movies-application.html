@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="css/movies-application.css" rel="stylesheet">
 </head>
 <body>
 <div id="loadingModal" class="modal" style="display:none;">
     <div class="modal-content">
         <div id="modalText">
-        <h4 id="modalHead">Please wait while movies are loading...</h4>
+            <h4 id="modalHead">Please wait while movies are loading...</h4>
 
         </div>
 
 
-<!-----------------------------------------------This is the GIF-->
+        <!-----------------------------------------------This is the GIF-->
 
 
-        <div class="tenor-gif-embed" data-postid="16717513" data-share-method="host" data-aspect-ratio="1.73913" data-width="100%"><a href="https://tenor.com/view/count-down-movie-countdown-movie-reel-countdown-gif-16717513">Count Down Movie Countdown GIF</a>from <a href="https://tenor.com/search/count+down-gifs">Count Down GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="tenor-gif-embed" data-postid="16717513" data-share-method="host" data-aspect-ratio="1.73913"
+             data-width="100%"><a
+                href="https://tenor.com/view/count-down-movie-countdown-movie-reel-countdown-gif-16717513">Count Down
+            Movie Countdown GIF</a>from <a href="https://tenor.com/search/count+down-gifs">Count Down GIFs</a></div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
     </div>
 </div>
@@ -29,83 +34,77 @@
 </div>
 <section class="card d-flex" id="mainCard">
     <div class="row ">
-<div id="cardInCard" class="w-50 card">
-<h3 class="card-header">Select a Movie</h3>
-<form class="card-body" id="editForm" name="editForm">
-
-<!--    document.querySelector("#edit-title").value = movie.title;-->
-<!--    document.querySelector("#edit-id").value = movie.id;-->
-<!--    document.querySelector("#edit-rating").value = movie.rating;-->
-
-    <label for="edit-select">Select A Movie:</label>
-    <select name="edit-select" id="edit-select"></select>
-    <label for="edit-title">Movie Title:</label>
-    <input type="text" id="edit-title">
-<!--    <label for="edit-isbn">Book ISBN:</label>-->
-<!--    <input type="text" id="edit-isbn">-->
-    <label for="edit-genre">Genre:</label>
-    <input type="text" id="edit-genre">
-<!--    <label for="edit-year">Book Year Published:</label>-->
-<!--    <input type="text" id="edit-year">-->
-    <label for="edit-rating">Star Rating:</label>
-    <select id="edit-rating" name ="edit-rating">Star Rating
-            <option>1 Star</option>
-            <option>2 Star</option>
-            <option>3 Star</option>
-            <option>4 Star</option>
-            <option>5 Star</option>
-
-    </select>
-    <button>Submit Edit</button>
-    <button id="deleteButton" type="button">Delete Movie</button>
-
-    <button id="seeAllMovies" type="button">See All Movies</button>
-</form>
-</div>
-<br>
-<br>
-<div id="cardInCard2" class="card w-50">
-<h3 class="card-header">Add A Movie</h3>
-<form class="card-body" id="addMovie" name="addMovie">
-
-    <!--    document.querySelector("#edit-title").value = movie.title;-->
-    <!--    document.querySelector("#edit-id").value = movie.id;-->
-    <!--    document.querySelector("#edit-rating").value = movie.rating;-->
-
-    <label for="add-title">Movie Title:</label>
-    <input type="text" id="add-title">
-    <!--    <label for="edit-isbn">Book ISBN:</label>-->
-    <!--    <input type="text" id="edit-isbn">-->
-<!--    <label for="add-id">Movie ID:</label>-->
-<!--    <input type="text" id="add-id" required pattern="[0-5000]+" inputmode="numeric"  placeholder="Enter a number ID">-->
-
-    <label for="add-genre">Genre:</label>
-    <input type="text" id="add-genre">
-
-    <label for="add-rating">Rate Me:</label>
-    <select id="add-rating" name="add-rating">
-        <option>1 Star</option>
-        <option>2 Star</option>
-        <option>3 Star</option>
-        <option>4 Star</option>
-        <option>5 Star</option>
-    </select>
-    <button>Submit New Movie</button>
+        <div id="cardInCard" class="w-50 card">
+            <h3 class="card-header">Select a Movie</h3>
+            <form class="card-body" id="editForm" name="editForm">
 
 
-</form>
-</div>
-    </div>
+                <label for="edit-select">Select A Movie:</label>
+                <select name="edit-select" id="edit-select"></select>
+                <label for="edit-title">Movie Title:</label>
+                <input type="text" id="edit-title">
+
+                <label for="edit-genre">Genre:</label>
+                <input type="text" id="edit-genre">
+
+                <label for="edit-rating">Star Rating:</label>
+                <select id="edit-rating" name="edit-rating">Star Rating
+                    <option>1 Star</option>
+                    <option>2 Star</option>
+                    <option>3 Star</option>
+                    <option>4 Star</option>
+                    <option>5 Star</option>
+
+                </select>
+                <button>Submit Edit</button>
+                <button id="deleteButton" type="button">Delete Movie</button>
+
+                <button id="seeAllMovies" type="button">List All Movies</button>
+            </form>
+        </div>
         <br>
+        <br>
+        <div id="cardInCard2" class="card w-50">
+            <h3 class="card-header">Add A Movie</h3>
+            <form class="card-body" id="addMovie" name="addMovie">
+
+
+                <label for="add-title">Movie Title:</label>
+                <input type="text" id="add-title">
+
+
+                <label for="add-genre">Genre:</label>
+                <input type="text" id="add-genre">
+
+                <label for="add-rating">Rate Me:</label>
+                <select id="add-rating" name="add-rating">
+                    <option>1 Star</option>
+                    <option>2 Star</option>
+                    <option>3 Star</option>
+                    <option>4 Star</option>
+                    <option>5 Star</option>
+                </select>
+                <button>Submit New Movie</button>
+
+
+            </form>
+        </div>
+    </div>
+    <br>
 </section>
+
+<!--Movie Choice Cards-------------------------------------------------------->
+
 <div class="card row" id="movieChoice">
-<div class="card-header"></div>
+    <div class="card-header"></div>
     <div class="card-body"></div>
 
 </div>
 
 
 <script src="js/movies-application.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 </html>
