@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NightAtTheOperaNF';
-    src: url('/images/night-at-the-opera-nf/NightAtTheOperaNF.otf') format('opentype'); /* Adjust the path and format as needed */
+    src: url('/images/night-at-the-opera-nf/NightAtTheOperaNF.otf') format('opentype');
 }
 
 body{
