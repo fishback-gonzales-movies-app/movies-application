@@ -1,28 +1,34 @@
 {
   "movies": [
     {
-      "id": "4",
-      "title": "The Grinch",
-      "rating": "4 Star",
-      "genre": "Comedy"
-    },
-    {
-      "id": "22",
-      "title": "Dawn of the Dead",
-      "rating": "3 Star",
-      "genre": "Comedy"
-    },
-    {
-      "id": "5",
-      "title": "The Big Short",
-      "rating": "5 Star",
-      "genre": "Drama"
-    },
-    {
       "title": "The Big Lebowski",
       "rating": "5 Star",
       "genre": "Comedy",
-      "id": "W0IxxCA"
+      "id": "HXjZGIC"
+    },
+    {
+      "title": "Clue",
+      "rating": "3 Star",
+      "genre": "action",
+      "id": "gIKVX-0"
+    },
+    {
+      "title": "The Grinch",
+      "rating": "3 Star",
+      "genre": "Comedy",
+      "id": "nK9h9PN"
+    },
+    {
+      "title": "Lord of the Rings",
+      "rating": "4 Star",
+      "genre": "Action-Fantasy",
+      "id": "ZgR0lI8"
+    },
+    {
+      "title": "Dawn of the Dead",
+      "rating": "5 Star",
+      "genre": "Horror",
+      "id": "yYfnDk-"
     }
   ]
 }
